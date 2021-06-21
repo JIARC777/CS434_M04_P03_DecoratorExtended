@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This specific class handles the spawning of rocket models based on specifications for number of wings
 public class RocketFactory
 {
 	GameObject product;

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// This specific class handles the spawning of glider aircraft models based on specifications for number of wings
 public class GliderFactory
 {
 	GameObject product;

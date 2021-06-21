@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/*
 public class PoweredAircraftFactory: MonoBehaviour
 {
 	GameObject product;
@@ -42,3 +42,4 @@ public class PoweredAircraftFactory: MonoBehaviour
 		}
 	}
 }
+*/

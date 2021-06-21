@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//
 public abstract class PlaneDecorator: IPlane
 {
     public IPlane decoratedPlane;
@@ -14,8 +15,10 @@ public abstract class PlaneDecorator: IPlane
 public class WithMissles: PlaneDecorator
 {
     GameObject model;
+    // Take the plane and make it the base class
     public WithMissles(IPlane plane) : base(plane)
     {
+        // load decorator and instantiate (position rigidly specified in prefab transform)
         GameObject prefab = Resources.Load<GameObject>("Missle");
         model = GameObject.Instantiate(prefab);
     }

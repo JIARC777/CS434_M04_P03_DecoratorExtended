@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Interface for any spawnable object
 public interface IPlane
 {
 	void spawnItem();
 	void RemoveObject();
 }
 
+// Base class to extend with specific models
 public class BasicPlane: IPlane
 {
 	public GameObject plane;
+	// Dummy function to override
 	public virtual void spawnItem() { Debug.Log("Base Spawn"); }
+	// Every object is destroyed in the same way
 	public void RemoveObject()
 	{
 		GameObject.Destroy(plane);
 	}
 }
-
+// Specific Plane models using Resources.Load() to instatiate
 public class OneWingGlider: BasicPlane
 {
 	public override void spawnItem()

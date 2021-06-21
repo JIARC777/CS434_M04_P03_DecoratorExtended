@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Client class acts as the requestor towards factory and decorator
 public class Client : MonoBehaviour
 {
+    // user controllable variables
     public bool rocket;
     public bool missles;
     public bool guns;
     public int howManyEngines;
     public int howManyWings;
 
+    // UI output text
     public Text numWings;
     public Text numEngines;
     public Text containRocket;
@@ -23,6 +26,7 @@ public class Client : MonoBehaviour
     void Update()
     {
         // Every Frame update the requirements to ensure all info is being sent when requested
+        // pressing S compiles any user specified data into requirements class 
         if (Input.GetKeyDown("s"))
         {
             Requirements requirements = new Requirements();
@@ -35,7 +39,9 @@ public class Client : MonoBehaviour
                 plane.RemoveObject();
             plane = factory.createItem(requirements);
             Debug.Log(plane.GetType());
+            // IPlane spawnItem() function specified from plane sent from factory
             plane.spawnItem();
+            // Decorators spawn items at constructor
             if (missles && !guns)
                 plane = new WithMissles(plane);
             if (guns && !missles)
@@ -44,6 +50,7 @@ public class Client : MonoBehaviour
                 plane = new WithMachineGun(new WithMissles(plane));
             
         }
+        // Look for user input
         // Increment the number of wings with the + -   Clip values between 0 and 4
         if (Input.GetKeyDown("="))
         {
@@ -79,6 +86,8 @@ public class Client : MonoBehaviour
         {
             guns = !guns;
         }
+
+        // UI Display
         numWings.text = howManyWings.ToString();
         numEngines.text = howManyEngines.ToString();
         containRocket.text = rocket.ToString();
